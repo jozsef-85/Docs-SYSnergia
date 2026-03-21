@@ -1,0 +1,140 @@
+{
+  "site": {
+    "name": "SYSnergia Docs",
+    "tagline": "Guías técnicas de administración de servidores Linux",
+    "stats": { "guides": 8, "os": 6, "services": 40 }
+  },
+  "featured_map": {
+    "eyebrow": "Indice tecnico",
+    "title": "Un mapa editorial inspirado en Server World",
+    "deck": "La portada ahora resume el entorno por familias tecnicas, con una organizacion cercana a un portal de documentacion: sistemas operativos, servicios, seguridad, contenedores, datos y monitoreo.",
+    "source_label": "Referencia estructural: Server World",
+    "source_url": "https://www.server-world.info/en/",
+    "note": "Inspirado en la estructura de navegacion, no en el texto original.",
+    "pills": [
+      "Debian",
+      "Ubuntu",
+      "Windows",
+      "Nginx",
+      "SQL Server",
+      "Docker",
+      "Firewall",
+      "Prometheus",
+      "Grafana"
+    ],
+    "cards": [
+      {
+        "kicker": "Base OS",
+        "title": "Preparacion del servidor",
+        "desc": "Usuarios, paquetes, servicios base, hostname, red y primeros controles para dejar el sistema listo antes de publicar aplicaciones.",
+        "tags": ["init", "ssh", "repos"]
+      },
+      {
+        "kicker": "Web Stack",
+        "title": "Publicacion web y reverse proxy",
+        "desc": "Nginx, virtual hosts, SSL, proxy_pass y rutas de publicacion para sitios estaticos, aplicaciones y APIs.",
+        "tags": ["nginx", "tls", "vhosts"]
+      },
+      {
+        "kicker": "Data Layer",
+        "title": "Bases de datos y persistencia",
+        "desc": "MariaDB, PostgreSQL, SQL Server y servicios afines con foco en instalacion, acceso inicial, respaldo y operacion segura.",
+        "tags": ["mariadb", "sqlserver", "backup"]
+      },
+      {
+        "kicker": "Containers",
+        "title": "Despliegue repetible",
+        "desc": "Docker, Podman y Kubernetes como base para levantar servicios de forma controlada y portable.",
+        "tags": ["docker", "podman", "k8s"]
+      },
+      {
+        "kicker": "Security",
+        "title": "Exposicion minima",
+        "desc": "Firewall, llaves SSH, endurecimiento y acceso remoto para mantener el perimetro pequeno y trazable.",
+        "tags": ["ufw", "fail2ban", "ssh"]
+      },
+      {
+        "kicker": "Observability",
+        "title": "Monitoreo util para operar",
+        "desc": "Prometheus, Grafana y chequeos que ayudan a detectar degradacion y validar el estado real de los servicios.",
+        "tags": ["metrics", "grafana", "alerts"]
+      }
+    ]
+  },
+  "os_list": [
+    {"id": "ubuntu",    "name": "Ubuntu",         "version": "24.04 LTS",      "emoji": "🐧"},
+    {"id": "debian",    "name": "Debian",          "version": "12 Bookworm",    "emoji": "🌀"},
+    {"id": "centos",    "name": "CentOS",          "version": "Stream 9",       "emoji": "🔴"},
+    {"id": "fedora",    "name": "Fedora",          "version": "41",             "emoji": "🎩"},
+    {"id": "windows-server", "name": "Windows Server",  "version": "2025",      "emoji": "🪟"},
+    {"id": "windows11", "name": "Windows 11",      "version": "24H2",           "emoji": "🖥️"}
+  ],
+  "categories": [
+    {"id": "web",        "name": "Web Servers",          "icon": "🌐", "color": "#00d4aa", "desc": "nginx · apache · caddy"},
+    {"id": "db",         "name": "Bases de Datos",        "icon": "🗄️", "color": "#0090ff", "desc": "mariadb · postgresql · sql server"},
+    {"id": "containers", "name": "Contenedores",          "icon": "📦", "color": "#a78bfa", "desc": "docker · kubernetes · podman"},
+    {"id": "ssh",        "name": "SSH / Acceso Remoto",   "icon": "🔐", "color": "#ff6b35", "desc": "ssh · sftp · vnc"},
+    {"id": "security",   "name": "Firewall / Seguridad",  "icon": "🛡️", "color": "#f0c040", "desc": "ufw · firewalld · fail2ban"},
+    {"id": "monitoring", "name": "Monitorización",        "icon": "📊", "color": "#39d353", "desc": "prometheus · grafana · zabbix"},
+    {"id": "init",       "name": "Config. Inicial",       "icon": "⚙️", "color": "#ff4e6a", "desc": "usuarios · red · repositorios"},
+    {"id": "ssl",        "name": "SSL / TLS",             "icon": "🔒", "color": "#00d4aa", "desc": "let's encrypt · certbot · openssl"}
+  ],
+  "sidebar": [
+    {
+      "section": "Instalación / Inicio",
+      "items": [
+        {"id": "install-initial", "label": "Configuración inicial",    "num": "01"},
+        {"id": "ssh-password",    "label": "SSH por contraseña",       "num": "02"},
+        {"id": "ssh-keygen",      "label": "Par de claves SSH",        "num": "03"}
+      ]
+    },
+    {
+      "section": "Web Servers",
+      "items": [
+        {"id": "nginx-install",  "label": "Nginx — Instalación",       "num": "01"},
+        {"id": "nginx-vhost",    "label": "Virtual Hosts",             "num": "02"},
+        {"id": "nginx-ssl",      "label": "SSL/TLS Let's Encrypt",     "num": "03"},
+        {"id": "nginx-proxy",    "label": "Reverse Proxy",             "num": "04"},
+        {"id": "apache-install", "label": "Apache httpd",              "num": "05"}
+      ]
+    },
+    {
+      "section": "Bases de Datos",
+      "items": [
+        {"id": "mariadb",     "label": "MariaDB 10.11",    "num": "01"},
+        {"id": "postgresql",  "label": "PostgreSQL 16",    "num": "02"},
+        {"id": "redis",       "label": "Redis / Valkey",   "num": "03"}
+      ]
+    },
+    {
+      "section": "Contenedores",
+      "items": [
+        {"id": "docker",      "label": "Docker CE",     "num": "01"},
+        {"id": "kubernetes",  "label": "Kubernetes",    "num": "02"},
+        {"id": "podman",      "label": "Podman",        "num": "03"}
+      ]
+    },
+    {
+      "section": "Firewall / Seguridad",
+      "items": [
+        {"id": "firewall-ufw",      "label": "UFW",        "num": "01"},
+        {"id": "firewall-firewalld","label": "Firewalld",  "num": "02"},
+        {"id": "firewall-fail2ban", "label": "Fail2Ban",   "num": "03"}
+      ]
+    },
+    {
+      "section": "Monitorización",
+      "items": [
+        {"id": "prometheus", "label": "Prometheus + Grafana", "num": "01"},
+        {"id": "zabbix",     "label": "Zabbix 7.0 LTS",      "num": "02"}
+      ]
+    }
+  ],
+  "news": [
+    {"date": "2025-12-15", "text": "Kubernetes 1.32 — Guía de instalación en Ubuntu 24.04",    "guide": "kubernetes"},
+    {"date": "2025-11-28", "text": "Let's Encrypt con Nginx — Renovación automática Certbot",   "guide": "nginx-ssl"},
+    {"date": "2025-11-10", "text": "PostgreSQL 16 — Streaming Replication paso a paso",         "guide": "postgresql"},
+    {"date": "2025-10-30", "text": "Docker CE 27 — Instalación y primeros contenedores",        "guide": "docker"},
+    {"date": "2025-10-15", "text": "Prometheus 3.0 + Grafana 11 — Stack de monitorización",     "guide": "prometheus"}
+  ]
+}

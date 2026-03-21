@@ -1,0 +1,112 @@
+{
+  "id": "docker",
+  "title": "Docker CE — Instalación y Primeros Pasos",
+  "subtitle": "Instala Docker Community Edition y aprende los comandos esenciales para gestionar contenedores.",
+  "category": "Contenedores",
+  "os": ["Ubuntu 24.04", "Debian 12", "CentOS Stream 9"],
+  "status": "draft",
+  "reviewed_at": "2026-03-20",
+  "prerequisites": [
+    "Acceso como <code>root</code> o consola con privilegios administrativos.",
+    "Conectividad a Internet hacia el repositorio oficial del proveedor.",
+    "Validar primero la familia del sistema operativo antes de ejecutar comandos."
+  ],
+  "applies_to": [
+    "Ubuntu 24.04 LTS",
+    "Debian 12",
+    "CentOS Stream 9"
+  ],
+  "tags": [{"label": "Docker 27.x", "type": "version"}, {"label": "Básico", "type": "difficulty"}],
+  "steps": [
+    {
+      "num": "01",
+      "title": "Instalar Docker CE desde el repositorio oficial",
+      "desc": "Añade el repositorio oficial de Docker e instala la versión Community Edition.",
+      "blocks": [
+        {
+          "lang": "bash",
+          "code": "# apt update && apt install -y ca-certificates curl gnupg\n# install -m 0755 -d /etc/apt/keyrings\n# curl -fsSL https://download.docker.com/linux/ubuntu/gpg \\\n    | gpg --dearmor -o /etc/apt/keyrings/docker.gpg\n# echo \"deb [arch=$(dpkg --print-architecture) \\\n  signed-by=/etc/apt/keyrings/docker.gpg] \\\n  https://download.docker.com/linux/ubuntu \\\n  $(lsb_release -cs) stable\" \\\n  | tee /etc/apt/sources.list.d/docker.list\n# apt update && apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin"
+        }
+      ]
+    },
+    {
+      "num": "02",
+      "title": "Verificar instalación y añadir usuario al grupo",
+      "desc": "Habilita Docker al inicio y permite usarlo sin sudo.",
+      "blocks": [
+        {
+          "lang": "bash",
+          "code": "# systemctl enable --now docker\n# docker --version\n# Docker version 27.3.1, build ce12230\n\n# usermod -aG docker $USER\n# newgrp docker\n$ docker run hello-world\n# Hello from Docker!"
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "title": "Comandos esenciales",
+      "desc": "Referencia rápida de los comandos más usados.",
+      "table": [
+        ["Comando", "Descripción"],
+        ["docker ps", "Listar contenedores activos"],
+        ["docker ps -a", "Todos los contenedores"],
+        ["docker images", "Listar imágenes locales"],
+        ["docker pull nginx", "Descargar imagen"],
+        ["docker run -d -p 80:80 nginx", "Ejecutar en background"],
+        ["docker logs <id>", "Ver logs"],
+        ["docker exec -it <id> bash", "Entrar al contenedor"],
+        ["docker stop <id>", "Detener"],
+        ["docker rm <id>", "Eliminar"],
+        ["docker compose up -d", "Levantar stack Compose"]
+      ]
+    },
+    {
+      "num": "04",
+      "title": "Ejemplo: stack Nginx + PHP + MariaDB",
+      "desc": "Un <code>docker-compose.yml</code> completo listo para usar.",
+      "blocks": [
+        {
+          "lang": "docker-compose.yml",
+          "code": "version: '3.9'\nservices:\n  nginx:\n    image: nginx:alpine\n    ports: [\"80:80\", \"443:443\"]\n    volumes:\n      - ./www:/var/www/html\n      - ./nginx.conf:/etc/nginx/conf.d/default.conf\n    depends_on: [php]\n  php:\n    image: php:8.3-fpm\n    volumes: [\"./www:/var/www/html\"]\n  db:\n    image: mariadb:11\n    environment:\n      MYSQL_ROOT_PASSWORD: secretpass\n      MYSQL_DATABASE: myapp\n    volumes: [\"db_data:/var/lib/mysql\"]\nvolumes:\n  db_data:"
+        },
+        {
+          "lang": "bash",
+          "code": "$ docker compose up -d\n# ✔ Container nginx  Started\n# ✔ Container php    Started\n# ✔ Container db     Started"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "summary": "Comprueba que el daemon responde, que el binario está disponible y que puedes arrancar un contenedor mínimo.",
+    "checks": [
+      "<code>systemctl status docker</code> debe mostrar el servicio activo.",
+      "<code>docker --version</code> debe devolver la versión instalada.",
+      "<code>docker run hello-world</code> debe completar sin errores."
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "El servicio Docker no inicia después de la instalación.",
+      "cause": "Suele ocurrir por repositorio incorrecto para la distro o por un conflicto previo con paquetes heredados.",
+      "fix": "Verifica la familia del sistema, revisa el journal del servicio y confirma que el repositorio configurado corresponde al OS objetivo.",
+      "blocks": [
+        {
+          "lang": "bash",
+          "code": "# systemctl status docker --no-pager\n# journalctl -u docker -xe\n# docker --version"
+        }
+      ],
+      "verify": "Cuando <code>systemctl status docker</code> quede en estado <code>active (running)</code>, vuelve a probar con <code>docker run hello-world</code>."
+    },
+    {
+      "symptom": "El usuario no puede ejecutar Docker sin privilegios.",
+      "cause": "El grupo <code>docker</code> no fue aplicado a la sesión actual o se añadió el usuario equivocado.",
+      "fix": "Confirma el usuario objetivo, vuelve a añadirlo al grupo <code>docker</code> y abre una nueva sesión antes de reintentar.",
+      "verify": "El comando <code>id</code> debe mostrar el grupo <code>docker</code> para la sesión del usuario final."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Documentación oficial de Docker Engine",
+      "url": "https://docs.docker.com/engine/install/",
+      "note": "Referencia principal para paquetes soportados, repositorios y post-instalación."
+    }
+  ]
+}

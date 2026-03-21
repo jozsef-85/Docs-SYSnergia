@@ -1,0 +1,352 @@
+{
+  "topics": [
+    {
+      "id": "ubuntu-install-initial",
+      "title": "Configuración inicial de Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-network-settings",
+      "title": "Configuración de red en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-ntp-chrony",
+      "title": "Servidor NTP con Chrony en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "NTP Server",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-ssh-password",
+      "title": "SSH por contraseña en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "SSH Server",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-ssh-keys",
+      "title": "Autenticación SSH con llaves en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "SSH Server",
+      "guide_id": "ssh-keygen",
+      "difficulty": "Intermedio",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-nginx-install",
+      "title": "Instalación de Nginx en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "WEB Server",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-nginx-ssl",
+      "title": "Nginx con SSL en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "WEB Server",
+      "guide_id": "nginx-ssl",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-docker-install",
+      "title": "Instalación de Docker en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "Containers Infra",
+      "guide_id": "docker",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-sql-server",
+      "title": "Instalación de SQL Server en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "Database",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "ubuntu-postgresql-install",
+      "title": "Instalación de PostgreSQL en Ubuntu 24.04",
+      "os": "Ubuntu 24.04",
+      "category": "Database",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "debian-install-initial",
+      "title": "Configuración inicial de Debian 12",
+      "os": "Debian 12",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "debian-sudo-vim",
+      "title": "Sudo y Vim en Debian 12",
+      "os": "Debian 12",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "debian-ntp-chrony",
+      "title": "Servidor NTP con Chrony en Debian 12",
+      "os": "Debian 12",
+      "category": "NTP Server",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "debian-ssh-password",
+      "title": "SSH por contraseña en Debian 12",
+      "os": "Debian 12",
+      "category": "SSH Server",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "debian-nginx-install",
+      "title": "Instalación de Nginx en Debian 12",
+      "os": "Debian 12",
+      "category": "WEB Server",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "debian-docker-install",
+      "title": "Instalación de Docker en Debian 12",
+      "os": "Debian 12",
+      "category": "Containers Infra",
+      "guide_id": "docker",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "debian-mariadb-install",
+      "title": "Instalación de MariaDB en Debian 12",
+      "os": "Debian 12",
+      "category": "Database",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "centos-install-initial",
+      "title": "Configuración inicial de CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "centos-firewall-selinux",
+      "title": "Firewall y SELinux en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "Install / Initial Config",
+      "difficulty": "Intermedio",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "centos-ntp-chrony",
+      "title": "Servidor NTP con Chrony en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "NTP Server",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "centos-ssh-password",
+      "title": "SSH por contraseña en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "SSH Server",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "centos-ssh-keys",
+      "title": "Autenticación SSH con llaves en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "SSH Server",
+      "guide_id": "ssh-keygen",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "centos-bind-install",
+      "title": "Instalación de BIND en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "DNS / DHCP Server",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "centos-dhcp-install",
+      "title": "Instalación de DHCP Server en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "DNS / DHCP Server",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "centos-kvm-install",
+      "title": "Instalación de KVM en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "Virtualization",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "centos-docker-install",
+      "title": "Instalación de Docker en CentOS Stream 9",
+      "os": "CentOS Stream 9",
+      "category": "Containers Infra",
+      "guide_id": "docker",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "fedora-install-initial",
+      "title": "Configuración inicial de Fedora 41",
+      "os": "Fedora 41",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "fedora-ssh-keys",
+      "title": "Autenticación SSH con llaves en Fedora 41",
+      "os": "Fedora 41",
+      "category": "SSH Server",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "fedora-nginx-install",
+      "title": "Instalación de Nginx en Fedora 41",
+      "os": "Fedora 41",
+      "category": "WEB Server",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "fedora-docker-install",
+      "title": "Instalación de Docker en Fedora 41",
+      "os": "Fedora 41",
+      "category": "Containers Infra",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "fedora-podman-basics",
+      "title": "Primeros pasos con Podman en Fedora 41",
+      "os": "Fedora 41",
+      "category": "Containers Infra",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "windows-server-openssh",
+      "title": "OpenSSH Server en Windows Server 2025",
+      "os": "Windows Server 2025",
+      "category": "SSH Server",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "windows-server-iis-install",
+      "title": "Instalación de IIS en Windows Server 2025",
+      "os": "Windows Server 2025",
+      "category": "WEB Server",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "windows-server-sql-server",
+      "title": "Instalación de SQL Server en Windows Server 2025",
+      "os": "Windows Server 2025",
+      "category": "Database",
+      "difficulty": "Intermedio",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "windows-server-sql-auth",
+      "title": "Autenticación y acceso inicial en SQL Server sobre Windows Server 2025",
+      "os": "Windows Server 2025",
+      "category": "Database",
+      "difficulty": "Intermedio",
+      "priority": 3,
+      "status": "todo"
+    },
+    {
+      "id": "windows11-openssh-client",
+      "title": "Cliente OpenSSH en Windows 11",
+      "os": "Windows 11",
+      "category": "SSH Server",
+      "difficulty": "Básico",
+      "priority": 1,
+      "status": "todo"
+    },
+    {
+      "id": "windows11-rsat-install",
+      "title": "Instalación de RSAT en Windows 11",
+      "os": "Windows 11",
+      "category": "Install / Initial Config",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    },
+    {
+      "id": "windows11-sql-tools",
+      "title": "SQL Server Management Studio y herramientas cliente en Windows 11",
+      "os": "Windows 11",
+      "category": "Database",
+      "difficulty": "Básico",
+      "priority": 2,
+      "status": "todo"
+    }
+  ]
+}

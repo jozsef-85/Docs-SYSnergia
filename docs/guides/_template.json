@@ -1,0 +1,64 @@
+{
+  "id": "nombre-kebab-case",
+  "title": "Título de la guía",
+  "subtitle": "Descripción breve de lo que se logra.",
+  "category": "Categoría",
+  "os": ["Ubuntu 24.04"],
+  "status": "draft",
+  "reviewed_at": "2026-03-20",
+  "prerequisites": [
+    "Prerequisito 1"
+  ],
+  "applies_to": [
+    "Ubuntu 24.04 LTS"
+  ],
+  "tags": [
+    { "label": "Versión del software", "type": "version" },
+    { "label": "Básico", "type": "difficulty" }
+  ],
+  "steps": [
+    {
+      "num": "01",
+      "title": "Título del paso",
+      "desc": "Descripción breve. Usa <code>comando</code> para inline code.",
+      "blocks": [
+        {
+          "lang": "bash",
+          "code": "# comentario\n# comando\n$ comando-usuario\n# output esperado"
+        }
+      ],
+      "table": null,
+      "info": {
+        "type": "tip",
+        "text": "Aviso breve. Usa <code>código</code> si aplica."
+      }
+    }
+  ],
+  "verification": {
+    "summary": "Cómo comprobar que el procedimiento quedó correcto.",
+    "checks": [
+      "<code>comando --version</code> devuelve salida válida"
+    ]
+  },
+  "troubleshooting": [
+    {
+      "symptom": "Síntoma observable",
+      "cause": "Causa probable",
+      "fix": "Acción correctiva resumida",
+      "blocks": [
+        {
+          "lang": "bash",
+          "code": "# comando-de-diagnostico\n# comando-correctivo"
+        }
+      ],
+      "verify": "Cómo validar que el problema quedó resuelto."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Fuente oficial",
+      "url": "https://ejemplo.com/doc",
+      "note": "Qué parte de la guía respalda esta referencia."
+    }
+  ]
+}
