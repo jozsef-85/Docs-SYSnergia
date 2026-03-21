@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TITULO] — [OS] — SYSnergia Docs</title>
+<meta name="description" content="[DESCRIPCION SEO]">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header id="masthead" class="masthead"></header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar"></nav>
+  <main><div class="content">
+
+    <!-- BREADCRUMB -->
+    <nav class="bc anim">
+      <a href="../index.html">Inicio</a><span>/</span>
+      <a href="index.html">[OS nombre]</a><span>/</span>
+      <a href="#">[Sección]</a><span>/</span>
+      [Título corto]
+    </nav>
+
+    <!-- HEADER -->
+    <header class="ph anim">
+      <div class="ph-kicker">[SECCION] — [OS] [VER]</div>
+      <h1>[TITULO COMPLETO]</h1>
+      <p class="deck">[Descripción de qué se logra. 1-2 frases.]</p>
+      <div class="ph-meta">
+        <span class="tag tag-os">[OS] [VER]</span>
+        <span class="tag tag-ver">[Software X.Y]</span>
+        <!-- tag-easy / tag-mid / tag-hard -->
+        <span class="tag tag-easy">Básico</span>
+      </div>
+    </header>
+
+    <!-- STEP 01 -->
+    <div class="step anim d1">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">01</span>
+        <span class="step-title">[Título del paso]</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <p class="step-desc">[Descripción. Usa <code>código inline</code> si hace falta.]</p>
+
+        <div class="cb">
+          <div class="cb-bar">
+            <span class="cb-lang">bash</span>
+            <button class="cb-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <pre><span class="cm"># Comentario</span>
+<span class="pr">#</span> comando-root
+<span class="pu">$</span> comando-usuario
+<span class="out">output esperado</span></pre>
+        </div>
+
+        <!-- Tipos: ib-tip / ib-note / ib-warn -->
+        <div class="ib ib-tip">
+          <span class="ico">→</span>
+          <span>[Consejo. Usa <code>código</code> si necesitas.]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 02 (archivo de configuración) -->
+    <div class="step anim d2">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">02</span>
+        <span class="step-title">[Título del paso]</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <div class="cb">
+          <div class="cb-bar">
+            <span class="cb-lang">/ruta/al/archivo.conf</span>
+            <button class="cb-copy" onclick="copyCode(this)">Copiar</button>
+          </div>
+          <pre><span class="kw">clave_configuracion</span>    <span class="sv">valor</span>
+<span class="kw">otra_clave</span>             <span class="sv">otro_valor</span>
+<span class="cm"># Comentario en archivo</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 03 (tabla de referencia) -->
+    <div class="step anim d3">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">03</span>
+        <span class="step-title">Referencia rápida</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <table class="gt">
+          <thead><tr><th>Comando</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>comando --flag</td><td>Qué hace</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGER: ajusta los hrefs al paso anterior y siguiente -->
+    <div class="pager anim">
+      <a href="[anterior].html">
+        <span>←</span>
+        <div><div class="pager-label">Anterior</div>[Título anterior]</div>
+      </a>
+      <a href="[siguiente].html">
+        <div><div class="pager-label">Siguiente</div>[Título siguiente]</div>
+        <span>→</span>
+      </a>
+    </div>
+
+  </div></main>
+</div>
+
+<footer class="footer">
+  <span>© 2025 SYSnergia Docs</span>
+  <span>
+    <a href="../index.html">Inicio</a> &nbsp;·&nbsp;
+    <a href="index.html">[OS nombre]</a>
+  </span>
+</footer>
+
+<script src="../nav.js"></script>
+<script>
+  renderMasthead();
+  renderSidebar('[nombre-archivo].html'); /* ← nombre exacto de ESTE archivo */
+</script>
+</body>
+</html>
+
+<!--
+═══════════════════════════════════════════════
+  COLORES EN BLOQUES DE CÓDIGO
+
+  <span class="pr">#</span>    → prompt root   (rojo)
+  <span class="pu">$</span>    → prompt usuario (azul)
+  <span class="cm"># comentario</span> → comentario (gris itálica)
+  <span class="kw">clave</span>   → keyword / clave config (azul)
+  <span class="sv">valor</span>   → string / valor (verde)
+  <span class="out">output</span>  → salida del comando (gris)
+
+═══════════════════════════════════════════════
+  PARA AGREGAR AL SIDEBAR (nav.js):
+
+  1. Abre /docs/nav.js
+  2. Busca OS_SIDEBAR.[os-id].sections
+  3. Encuentra la sección correcta
+  4. Añade: { num:'XX', label:'Título', href:'nombre-archivo.html' }
+
+  El href es relativo a la carpeta del OS.
+  Si pones href:'' aparece como "pronto" (deshabilitado).
+
+═══════════════════════════════════════════════
+  PARA AGREGAR UN OS NUEVO:
+
+  1. Crea carpeta /docs/[os-id]/
+  2. Crea /docs/[os-id]/index.html (copia ubuntu/index.html)
+  3. Añade el OS en OS_LIST dentro de nav.js
+  4. Añade OS_SIDEBAR.[os-id] con sus secciones en nav.js
+
+═══════════════════════════════════════════════
+-->

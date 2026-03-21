@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker CE — Ubuntu 24.04 — SYSnergia Docs</title>
+<meta name="description" content="Instala Docker CE en Ubuntu 24.04 desde el repositorio oficial. Comandos esenciales y Docker Compose.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header id="masthead" class="masthead"></header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar"></nav>
+  <main><div class="content">
+
+    <nav class="bc anim">
+      <a href="../index.html">Inicio</a><span>/</span>
+      <a href="index.html">Ubuntu 24.04</a><span>/</span>
+      <a href="docker.html">Contenedores</a><span>/</span>
+      Docker CE
+    </nav>
+
+    <header class="ph anim">
+      <div class="ph-kicker">Contenedores — Ubuntu 24.04 LTS</div>
+      <h1>Docker CE — Instalación</h1>
+      <p class="deck">Instala Docker Community Edition desde el repositorio oficial y gestiona contenedores con Docker Compose.</p>
+      <div class="ph-meta">
+        <span class="tag tag-os">Ubuntu 24.04</span>
+        <span class="tag tag-ver">Docker 27.x</span>
+        <span class="tag tag-easy">Básico</span>
+      </div>
+    </header>
+
+    <div class="step anim d1">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">01</span>
+        <span class="step-title">Instalar desde el repositorio oficial</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <div class="cb">
+          <div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copiar</button></div>
+          <pre><span class="cm"># Dependencias</span>
+<span class="pr">#</span> apt update && apt install -y ca-certificates curl gnupg
+
+<span class="cm"># Clave GPG oficial Docker</span>
+<span class="pr">#</span> install -m 0755 -d /etc/apt/keyrings
+<span class="pr">#</span> curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+    | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+<span class="pr">#</span> chmod a+r /etc/apt/keyrings/docker.gpg
+
+<span class="cm"># Repositorio Docker</span>
+<span class="pr">#</span> echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" \
+  | tee /etc/apt/sources.list.d/docker.list
+
+<span class="cm"># Instalar Docker</span>
+<span class="pr">#</span> apt update && apt install -y \
+    docker-ce docker-ce-cli containerd.io \
+    docker-buildx-plugin docker-compose-plugin</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step anim d2">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">02</span>
+        <span class="step-title">Habilitar y verificar</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <div class="cb">
+          <div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copiar</button></div>
+          <pre><span class="pr">#</span> systemctl enable --now docker
+<span class="pr">#</span> docker --version
+<span class="out">Docker version 27.3.1, build ce12230</span>
+
+<span class="cm"># Usar sin sudo</span>
+<span class="pr">#</span> usermod -aG docker $USER && newgrp docker
+
+<span class="pu">$</span> docker run hello-world
+<span class="out">Hello from Docker!</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="step anim d3">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">03</span>
+        <span class="step-title">Comandos esenciales</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <table class="gt">
+          <thead><tr><th>Comando</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>docker ps</td><td>Contenedores activos</td></tr>
+            <tr><td>docker ps -a</td><td>Todos los contenedores</td></tr>
+            <tr><td>docker images</td><td>Imágenes locales</td></tr>
+            <tr><td>docker run -d -p 80:80 nginx</td><td>Ejecutar Nginx en background</td></tr>
+            <tr><td>docker logs &lt;id&gt;</td><td>Ver logs</td></tr>
+            <tr><td>docker exec -it &lt;id&gt; bash</td><td>Entrar al contenedor</td></tr>
+            <tr><td>docker compose up -d</td><td>Levantar stack Compose</td></tr>
+            <tr><td>docker compose down</td><td>Detener stack</td></tr>
+            <tr><td>docker system prune -a</td><td>Limpiar todo lo no usado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="step anim d4">
+      <div class="step-hd" onclick="toggleStep(this)">
+        <span class="step-big-n">04</span>
+        <span class="step-title">Stack Nginx + PHP + MariaDB con Compose</span>
+        <span class="step-arrow open">▾</span>
+      </div>
+      <div class="step-body">
+        <div class="cb">
+          <div class="cb-bar"><span class="cb-lang">docker-compose.yml</span><button class="cb-copy" onclick="copyCode(this)">Copiar</button></div>
+          <pre><span class="kw">services</span>:
+  <span class="kw">nginx</span>:
+    <span class="kw">image</span>: <span class="sv">nginx:alpine</span>
+    <span class="kw">ports</span>: [<span class="sv">"80:80"</span>, <span class="sv">"443:443"</span>]
+    <span class="kw">volumes</span>:
+      - <span class="sv">./www:/var/www/html:ro</span>
+      - <span class="sv">./nginx.conf:/etc/nginx/conf.d/default.conf:ro</span>
+    <span class="kw">depends_on</span>: [php]
+    <span class="kw">restart</span>: <span class="sv">unless-stopped</span>
+  <span class="kw">php</span>:
+    <span class="kw">image</span>: <span class="sv">php:8.3-fpm</span>
+    <span class="kw">volumes</span>: [<span class="sv">"./www:/var/www/html"</span>]
+    <span class="kw">restart</span>: <span class="sv">unless-stopped</span>
+  <span class="kw">db</span>:
+    <span class="kw">image</span>: <span class="sv">mariadb:11</span>
+    <span class="kw">environment</span>:
+      <span class="kw">MYSQL_ROOT_PASSWORD</span>: <span class="sv">rootpass</span>
+      <span class="kw">MYSQL_DATABASE</span>:      <span class="sv">myapp</span>
+    <span class="kw">volumes</span>: [<span class="sv">"db_data:/var/lib/mysql"</span>]
+    <span class="kw">restart</span>: <span class="sv">unless-stopped</span>
+<span class="kw">volumes</span>:
+  <span class="kw">db_data</span>:</pre>
+        </div>
+        <div class="cb">
+          <div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copiar</button></div>
+          <pre><span class="pu">$</span> docker compose up -d
+<span class="out">✔ Container db     Started
+✔ Container php    Started
+✔ Container nginx  Started</span></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="pager anim">
+      <a href="docker-compose.html" class="disabled"><span>←</span><div><div class="pager-label">Anterior</div>Docker Compose</div></a>
+      <a href="kubernetes.html"><div><div class="pager-label">Siguiente</div>Kubernetes</div><span>→</span></a>
+    </div>
+
+  </div></main>
+</div>
+
+<footer class="footer">
+  <span>© 2025 SYSnergia Docs</span>
+  <span><a href="../index.html">Inicio</a> &nbsp;·&nbsp; <a href="index.html">Ubuntu 24.04</a></span>
+</footer>
+
+<script src="../nav.js"></script>
+<script>renderMasthead(); renderSidebar('docker.html');</script>
+</body>
+</html>
