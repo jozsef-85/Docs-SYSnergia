@@ -1,0 +1,140 @@
+site_name: SYSnergia Docs
+site_description: Guías técnicas de administración de servidores Linux y Windows Server en español
+site_author: José
+site_url: https://docs.sysnergia.com/
+
+repo_name: jozsef-85/Docs-SYSnergia
+repo_url: https://github.com/jozsef-85/Docs-SYSnergia
+edit_uri: edit/main/docs/
+exclude_docs: _TEMPLATE.md
+
+copyright: "© 2025 SYSnergia Docs — Guías de administración de servidores en español"
+
+# ── TEMA ──────────────────────────────────────
+theme:
+  name: material
+  custom_dir: overrides
+  language: es
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+  font:
+    text: IBM Plex Sans
+    code: JetBrains Mono
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - content.action.edit
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - search.highlight
+    - search.suggest
+    - search.share
+    - toc.follow
+    - toc.integrate
+
+  icon:
+    repo: fontawesome/brands/github
+
+# ── PLUGINS ───────────────────────────────────
+plugins:
+  - search:
+      lang: es
+  - minify:
+      minify_html: true
+
+# ── EXTENSIONES MARKDOWN ──────────────────────
+markdown_extensions:
+  - admonition                     # !!! note / warning / tip
+  - pymdownx.details               # ??? collapsible blocks
+  - pymdownx.superfences:          # bloques de código avanzados
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:            # resaltado de sintaxis
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite          # código inline resaltado
+  - pymdownx.snippets              # incluir archivos externos
+  - pymdownx.tabbed:               # tabs de contenido
+      alternate_style: true
+  - pymdownx.tasklist:             # listas de tareas [ ] [x]
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list                      # atributos en elementos
+  - md_in_html                     # markdown dentro de HTML
+  - tables                         # tablas GFM
+  - toc:
+      permalink: true              # links de ancla en títulos
+      title: En esta página
+
+# ── CSS PERSONALIZADO ─────────────────────────
+extra_css:
+  - stylesheets/extra.css
+
+# ── JAVASCRIPT EXTRA ──────────────────────────
+extra_javascript:
+  - javascripts/extra.js
+
+# ── DATOS EXTRA ───────────────────────────────
+extra:
+  status:
+    phase: Curated beta
+    version: 2026
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jozsef-85/Docs-SYSnergia
+      name: GitHub
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX       # reemplaza con tu ID de GA4
+
+  # Versiones del sitio (opcional)
+  version:
+    provider: mike
+
+# ── NAVEGACIÓN ────────────────────────────────
+nav:
+  - Inicio: index.md
+
+  - Ubuntu 24.04:
+    - ubuntu/index.md
+
+  - CentOS Stream 9:
+    - centos/index.md
+
+  - Debian 12:
+    - debian/index.md
+
+  - Rocky Linux 9:
+    - rocky/index.md
+
+  - Windows Server 2025:
+    - windows/index.md
