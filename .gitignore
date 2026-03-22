@@ -14,3 +14,16 @@ dist/
 coverage/
 site/
 venv/
+/docs/404.html
+/docs/index.html
+/docs/centos/index.html
+/docs/debian/index.html
+/docs/rocky/index.html
+/docs/ubuntu/index.html
+/docs/windows/index.html
+/docs/search/
+/docs/sitemap.xml
+/docs/sitemap.xml.gz
+/docs/assets/images/
+/docs/assets/javascripts/
+/docs/assets/stylesheets/
